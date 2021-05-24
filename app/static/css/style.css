@@ -1,0 +1,27 @@
+body
+{
+    background-color: white;
+    padding: 1em;
+    margin: 10px 30px 8px 30px;
+}
+ul.no-bullets {
+    list-style-type: none;
+    text-decoration: none;
+    margin: 10px 0 0 10px ;
+		}
+a{
+	text-decoration: none;
+	font-weight: 700;
+	color: #523e02;
+}
+.sidebar{
+    height: 378px;
+    width: auto;
+}
+.title button{
+	color:  #523e02
+}
+.title button:hover{
+	background: #8b7e72;
+	color: white;
+}

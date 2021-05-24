@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="container">
+  <div class="row">
+    <div class="col-6"> 
+    		<div class="alert alert-dark" role="alert">
+    	    	<h6>Jobs from GITHUB</h6>
+			</div>
+    	<div class="overflow-scroll" style="height: 586px;">
+	    	<div style="height: auto;">
+		    	{% for job in jobs %}
+		    	<div class="alert alert-warning" role="alert">
+		 			<a href={{job[1]}} class="alert-link" style="text-decoration: none;"> {{job[0]}}  </a>
+				</div>
+				{% endfor %}
+			</div>
+    	</div>    
+    	<br>
+    	<div class="alert alert-success" role="alert">
+			<em>{{time}}</em>
+		</div>
+    </div>
+   	<div class="col-6">
+	    	<div class="alert alert-dark" role="alert">
+				<h6>Posts from 
+		    		<a href="https://www.familug.org/" style="text-decoration: none;color: black;">Familug</a>
+		    	</h6>
+	    	</div>
+	    	<div class="sidebar">
+	    		<div class = "title">
+	    		<ul class="nav nav-tabs" id="myTab" role="tablist">
+				  <li class="nav-item" role="presentation">
+				    <button class="nav-link active" id="python-tab" data-bs-toggle="tab" data-bs-target="#python" type="button" role="tab" aria-controls="python" aria-selected="true">Python</button>
+				  </li>
+				  <li class="nav-item" role="presentation">
+				    <button class="nav-link" id="command-tab" data-bs-toggle="tab" data-bs-target="#command" type="button" role="tab" aria-controls="command" aria-selected="false">Command</button>
+				  </li>
+				  <li class="nav-item" role="presentation">
+				    <button class="nav-link" id="sysadmin-tab" data-bs-toggle="tab" data-bs-target="#sysadmin" type="button" role="tab" aria-controls="sysadmin" aria-selected="false">Sysadmin</button>
+				  </li>
+				   <li class="nav-item" role="presentation">
+				    <button class="nav-link" id="lastest-tab" data-bs-toggle="tab" data-bs-target="#lastest" type="button" role="tab" aria-controls="lastest" aria-selected="false">Lastest</button>
+				  </li>
+				</ul>
+				</div>
+				<div class="tab-content" id="myTabContent">
+				  <div class="tab-pane fade show active" id="python" role="tabpanel" aria-labelledby="python-tab">
+                <div class="modal-dialog-scrollable sidebar" style="overflow: scroll">
+                                    <ul class="no-bullets">
+                        {% for link in posts["Python"] %}
+                        <div class="alert alert-warning" role="alert">
+                        <li>{{link|safe}}</li>
+						</div>
+                        {% endfor %}
+                    </ul>
+                		</div> 
+				</div>
+				  <div class="tab-pane fade" id="command" role="tabpanel" aria-labelledby="command-tab">
+                <div class="modal-dialog-scrollable sidebar" style="overflow: scroll">
+                    <ul class="no-bullets">
+                        {% for link in posts["Command"] %}
+                        <div class="alert alert-warning" role="alert">
+                        <li>{{link|safe}}</li>
+						</div>
+                        {% endfor %}
+                    </ul>
+                </div> 
+				</div>
+				  <div class="tab-pane fade" id="sysadmin" role="tabpanel" aria-labelledby="sysadmin-tab">
+                <div class="modal-dialog-scrollable sidebar" style="overflow: scroll">
+                     <ul class="no-bullets">
+                        {% for link in posts["sysadmin"] %}
+                        <div class="alert alert-warning" role="alert">
+                        	<li>{{link|safe}}</li>
+						</div>
+                        {% endfor %}
+                    </ul>
+                </div> 
+				</div>
+  				  <div class="tab-pane fade" id="lastest" role="tabpanel" aria-labelledby="lastest-tab">
+                <div class="modal-dialog-scrollable sidebar" style="overflow: scroll">
+                 	<ul class="no-bullets">
+                        {% for link in posts["Lastest"] %}
+                        <div class="alert alert-warning" role="alert">
+                        <li>{{link|safe}}</li>
+						</div>
+                        {% endfor %}
+                    </ul>
+                </div> 
+  			</div>
+  			</div>
+			<br>
+				<div class="card text-white bg-dark mb-3" style="max-width: auto;">
+				  <div class="card-header">Check Loto</div>
+				  <div class="card-body">
+				    <h5 class="card-title">Number</h5>
+				  		<div class="input-group mb-3">
+				  		<form action="/" METHOD="POST">
+				  			<div class="form-group">
+								<input type="text" class="form-control" placeholder="Enter your number" name = "check_number">
+							</div>
+						<br>
+							<button type="submit" class="btn btn-outline-secondary">Check Number</button>
+						</form>
+						</div>
+				    	<p style="color: white;">{{checked_result}} </p>
+				  </div>
+				</div>
+		</div>
+	</div>
+</div>
+</div>
+{% endblock %}
+
